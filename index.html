@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f7f9"><meta name="description" content="Aura Music — tu música, sin conexión">
+<link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./styles.css">
+<meta name="theme-color" content="#0A1B2E"><title>Aura Music — Signature</title>
+</head>
+<body>
+<div class="shell">
+<header class="header">
+  <div class="brand"><div class="logo" aria-hidden="true">♫</div><div><span class="overline">TU BIBLIOTECA PERSONAL</span><h1>Aura Music</h1></div></div>
+  <button class="round" id="themeBtn" aria-label="Cambiar apariencia" title="Cambiar apariencia">◐</button>
+</header>
+<main>
+<section id="home" class="screen active">
+<div class="hero"><span class="overline">TU UNIVERSO MUSICAL</span><h2>Soundtrack<br><em>of your life.</em></h2><p>Artistas, álbumes y canciones que hacen cada momento tuyo.</p><div class="hero-actions"><button class="btn primary" id="importHome">＋ Importar música</button><button class="btn ghost" data-screen="library">Explorar biblioteca</button></div><div class="hero-glow"></div><div class="hero-orb" aria-hidden="true">♫</div></div>
+<div class="section-title"><h3>Reproducido recientemente</h3><button class="link" data-screen="library">Ver todo</button></div><div id="recent" class="track-list"></div>
+<div class="section-title"><h3>Tu música</h3><span id="totalHome" class="subtle">0 canciones</span></div><div class="library-banner" data-screen="library"><div class="banner-icon">▤</div><div><b>Biblioteca musical</b><small>Todo lo que importas, en un solo lugar</small></div><span>›</span></div>
+</section>
+<section id="library" class="screen">
+<div class="page-head"><div><span class="overline">TODO LO QUE AMAS ESCUCHAR</span><h2>Tu biblioteca</h2></div><button class="btn primary small-btn" id="importLibrary">＋ Añadir</button></div>
+<div class="search"><span>⌕</span><input id="search" placeholder="Buscar canciones, artistas o álbumes" autocomplete="off"></div>
+<div class="chips"><button class="chip active" data-filter="songs">Canciones</button><button class="chip" data-filter="albums">Álbumes</button><button class="chip" data-filter="artists">Artistas</button><button class="chip" data-filter="favorites">Favoritos</button><button class="chip" data-filter="playlists">Playlists</button></div>
+<div class="list-tools"><span id="libraryTotal" class="subtle">0 elementos</span><select id="sort"><option value="added">Añadidos recientemente</option><option value="title">Título A–Z</option><option value="artist">Artista A–Z</option><option value="album">Álbum A–Z</option></select></div>
+<div id="libraryContent"></div>
+</section>
+<section id="nowPlaying" class="screen player-screen">
+<div class="player-nav"><button class="round" data-screen="library">⌄</button><span class="overline">EN REPRODUCCIÓN</span><button class="round" id="trackMenu">•••</button></div>
+<div class="art-wrap"><div id="playerArt" class="player-art"><span>♫</span></div></div>
+<div class="track-heading"><div><h2 id="playerTitle">Elige una canción</h2><p id="playerArtist">Tu biblioteca te espera</p></div><button id="favoriteCurrent" class="favorite">♡</button></div>
+<div class="seek-wrap"><input id="seek" type="range" min="0" max="1000" value="0"><div class="time"><span id="elapsed">0:00</span><span id="remaining">0:00</span></div></div>
+<div class="transport"><button id="shuffle" class="transport-side" title="Aleatorio">⤨</button><button id="previous" class="skip">|‹</button><button id="play" class="play">▶</button><button id="next" class="skip">›|</button><button id="repeat" class="transport-side" title="Repetir">↻</button></div>
+<div class="player-extras"><button class="btn ghost" id="changeCover">▧ Portada</button><button class="btn ghost" id="editMetadata">✎ Editar datos</button><button class="btn ghost" id="showQueue">☷ Cola</button><button class="btn eq-launch" id="openEQ">♫ Ecualizador</button></div>
+<div class="eq-panel" id="eqPanel"><div class="section-title"><h3>Ecualizador</h3><label class="toggle"><input id="eqEnabled" type="checkbox"><span></span></label></div><div class="eq-bands" id="eqBands"><label>60 Hz<input type="range" min="-12" max="12" value="0" data-band="0"></label><label>230 Hz<input type="range" min="-12" max="12" value="0" data-band="1"></label><label>910 Hz<input type="range" min="-12" max="12" value="0" data-band="2"></label><label>3.6 kHz<input type="range" min="-12" max="12" value="0" data-band="3"></label><label>14 kHz<input type="range" min="-12" max="12" value="0" data-band="4"></label></div></div>
+</section>
+<section id="settings" class="screen">
+<span class="overline">PERSONALIZA TU EXPERIENCIA</span><h2>Tu espacio</h2>
+<div class="setting"><div><b>Apariencia</b><small>Tema oscuro o claro</small></div><button class="btn ghost" id="themeBtn2">Cambiar</button></div>
+<div class="setting"><div><b>Portadas y ambiente animado</b><small>Movimiento sutil y fondo con tonos de la portada</small></div><label class="toggle" aria-label="Activar efectos visuales"><input id="motionEnabled" type="checkbox" checked><span></span></label></div>
+<div class="setting"><div><b>Almacenamiento local</b><small id="storageStatus">Archivos guardados en este navegador</small></div><strong id="storageCount">0</strong></div>
+<div class="setting"><div><b>Instalar Aura Music</b><small>En Chrome: menú ⋮ → Añadir a pantalla de inicio</small></div></div>
+<div class="setting"><div><b>Privacidad</b><small>Tu música permanece en este dispositivo. No se envía a servidores.</small></div></div>
+<div class="setting"><div><b>Respaldo de biblioteca</b><small>Exporta o restaura tus canciones y datos de Aura.</small><div class="backup-actions"><button class="btn ghost" id="exportBackup">Exportar respaldo</button><button class="btn ghost" id="importBackup">Importar respaldo</button></div></div></div>
+<button class="danger" id="clearLibrary">Eliminar biblioteca local</button><p class="fineprint">La compatibilidad de FLAC/AAC/M4A depende del navegador y del dispositivo. La reproducción en segundo plano depende de las restricciones de Android/Chrome.</p>
+</section>
+</main>
+<nav class="bottom-nav"><button class="nav active" data-screen="home"><span>⌂</span>Inicio</button>
+<button class="nav" data-screen="library"><span>▤</span>Biblioteca</button>
+<button class="nav" data-screen="nowPlaying"><span>♫</span>Ahora</button>
+<button class="nav" data-screen="settings"><span>⚙</span>Ajustes</button></nav>
+<div id="mini" class="mini hidden"><div id="miniArt" class="mini-art">♫</div><div class="mini-info"><b id="miniTitle">—</b><small id="miniArtist">—</small></div><button id="miniPlay">▶</button><button id="miniNext">›|</button></div>
+</div>
+<input id="audioPicker" type="file" accept="audio/*,.mp3,.flac,.wav,.aac,.m4a,.ogg" multiple hidden>
+<input id="imagePicker" type="file" accept="image/jpeg,image/png,image/webp,image/gif" hidden>
+<input id="backupPicker" type="file" accept="application/json,.json" hidden>
+<div id="dialog" class="dialog hidden"><div class="dialog-card"><button id="dialogClose" class="dialog-close">×</button><h3 id="dialogTitle">Editar canción</h3><div id="dialogBody"></div></div></div>
+<audio id="audio" preload="metadata"></audio>
+<script src="./app.js"></script>
+</body></html>
