@@ -1,5 +1,5 @@
 /* Aura Music Signature — GitHub Pages compatible */
-const CACHE_NAME='aura-music-signature-github-v10-player-fixes';
+const CACHE_NAME='aura-music-signature-v11-library-grid';
 const ASSET_PATHS=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest','./icon.svg'];
 const assetURL=path=>new URL(path,self.registration.scope).href;
 self.addEventListener('install',event=>{
