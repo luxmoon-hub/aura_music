@@ -1,0 +1,9 @@
+{
+  "appId": "com.auramusic.player",
+  "appName": "Aura Music",
+  "webDir": "www",
+  "backgroundColor": "#0A1B2E",
+  "android": {
+    "allowMixedContent": false
+  }
+}

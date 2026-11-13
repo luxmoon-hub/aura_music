@@ -49,7 +49,24 @@
 <button class="nav" data-screen="library"><span>▤</span>Biblioteca</button>
 <button class="nav" data-screen="nowPlaying"><span>♫</span>Ahora</button>
 <button class="nav" data-screen="settings"><span>⚙</span>Ajustes</button></nav>
-<div id="mini" class="mini hidden"><div id="miniArt" class="mini-art">♫</div><div class="mini-info"><b id="miniTitle">—</b><small id="miniArtist">—</small></div><button id="miniPlay">▶</button><button id="miniNext">›|</button></div>
+<section id="mini" class="mini hidden" aria-label="Reproductor rápido">
+  <button id="miniPrevious" class="mini-control mini-skip" aria-label="Canción anterior">⏮</button>
+  <button id="miniArt" class="mini-art" aria-label="Abrir reproductor">♫</button>
+  <div class="mini-center">
+    <button class="mini-info" id="miniOpen" aria-label="Abrir canción actual">
+      <b id="miniTitle">—</b><small id="miniArtist">—</small>
+    </button>
+    <input id="miniSeek" class="mini-seek" type="range" min="0" max="1000" value="0" aria-label="Progreso de reproducción">
+  </div>
+  <button id="miniPlay" class="mini-control mini-play" aria-label="Reproducir o pausar">▶</button>
+  <button id="miniNext" class="mini-control mini-skip" aria-label="Siguiente canción">⏭</button>
+  <button id="miniQueue" class="mini-control mini-tool" aria-label="Cola de reproducción">☷</button>
+  <button id="miniVolume" class="mini-control mini-tool" aria-label="Control de volumen">◖))</button>
+  <div id="miniVolumePanel" class="mini-volume-panel hidden">
+    <span>VOLUMEN</span>
+    <input id="miniVolumeRange" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volumen">
+  </div>
+</section>
 </div>
 <input id="audioPicker" type="file" accept="audio/*,.mp3,.flac,.wav,.aac,.m4a,.ogg" multiple hidden>
 <input id="imagePicker" type="file" accept="image/jpeg,image/png,image/webp,image/gif" hidden>

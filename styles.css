@@ -228,3 +228,83 @@ body.light .setting{border-color:#A1B2C4}
 body.light .field input{background:#F2F6FB;color:#0A1B2E;border-color:#A1B2C4}
 body.light .track-meta small,body.light .track-heading p{color:#557392}
 @media(min-width:600px){.hero{padding:35px}.player-screen{margin:0 -30px;padding-left:30px;padding-right:30px}}
+
+
+/* SIGNATURE TYPOGRAPHY SYSTEM — editorial serif + friendly sans */
+:root{
+ --font-display: Georgia,"Times New Roman",serif;
+ --font-ui: "Avenir Next",Avenir,"Trebuchet MS",system-ui,sans-serif;
+ --font-italic: Georgia,"Times New Roman",serif;
+}
+html,body,button,input,select,textarea{font-family:var(--font-ui)}
+h1,h2,h3,h4,.section-title h3,.page-head h2,.screen>h2,.track-heading h2,
+.dialog-card h2,.dialog-card h3,.eq-panel h3,.setting b{
+ font-family:var(--font-display);font-weight:500;letter-spacing:-.45px
+}
+h1{font-size:25px;letter-spacing:-.7px}
+.header .overline,.overline,.section-title .subtle,.page-head .overline{
+ font-family:var(--font-ui);font-weight:700;letter-spacing:2.1px;text-transform:uppercase
+}
+.hero h2{font-family:var(--font-display);font-size:clamp(42px,10vw,64px);line-height:.94;letter-spacing:-2px}
+.hero h2 em{font-family:var(--font-italic);font-style:italic;font-weight:700;letter-spacing:-2.5px}
+.section-title h3{font-size:23px}
+.track-meta b,.setting b,.library-banner b,.playlist-card b,.mini-info b{font-family:var(--font-ui);font-weight:700;letter-spacing:-.15px}
+.btn,.chip,.nav,.round,.transport button,.link,.field label,.list-tools select{
+ font-family:var(--font-ui);font-weight:650;letter-spacing:.1px
+}
+.track-heading h2{font-family:var(--font-display);font-size:clamp(24px,6vw,32px);font-weight:500}
+.track-heading p,.track-meta small,.setting small,.library-banner small,.playlist-card small{
+ font-family:var(--font-ui);letter-spacing:.15px
+}
+.player-nav .overline{font-family:var(--font-ui);letter-spacing:2.5px}
+.dialog-card h2,.dialog-card h3{font-family:var(--font-display)}
+input,select,textarea{font-family:var(--font-ui)}
+/* Avoid tiny type and improve legibility on compact mobile screens */
+button{ -webkit-tap-highlight-color:transparent }
+@media(max-width:380px){.hero h2{font-size:40px}.section-title h3{font-size:20px}.shell{padding-left:17px;padding-right:17px}}
+
+
+/* AURA MUSIC SIGNATURE V9 — LIQUID GLASS PLAYER */
+.mini{
+  position:fixed;z-index:12;left:50%;bottom:calc(76px + env(safe-area-inset-bottom));
+  transform:translateX(-50%);width:min(790px,calc(100% - 22px));
+  min-height:78px;display:flex;align-items:center;gap:clamp(6px,1.5vw,13px);
+  padding:10px 13px;border-radius:25px;overflow:visible;
+  background:linear-gradient(112deg,rgba(10,27,46,.91),rgba(27,59,90,.79) 48%,rgba(85,115,146,.57));
+  border:1px solid rgba(225,232,240,.48);
+  box-shadow:0 15px 38px rgba(0,8,22,.38),inset 0 1px 0 rgba(255,255,255,.38),inset 0 -1px 0 rgba(10,27,46,.45);
+  -webkit-backdrop-filter:blur(28px) saturate(1.7);backdrop-filter:blur(28px) saturate(1.7);
+}
+.mini:before{content:"";position:absolute;inset:1px;border-radius:24px;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.18),transparent 34%,rgba(196,210,225,.09) 72%,transparent)}
+.mini.hidden{display:none}
+.mini-art{position:relative;z-index:1;width:48px;height:48px;flex:0 0 48px;border-radius:13px;overflow:hidden;display:grid;place-items:center;border:1px solid rgba(225,232,240,.4);background:linear-gradient(145deg,#7A8CA6,#112A46);color:#F2F6FB;font-size:22px;box-shadow:0 5px 14px #06142688;cursor:pointer;padding:0}
+.mini-art img{width:100%;height:100%;object-fit:cover}
+.mini-center{position:relative;z-index:1;min-width:0;flex:1;display:flex;flex-direction:column;gap:6px}
+.mini-info{display:flex;flex-direction:column;align-items:flex-start;min-width:0;width:100%;border:0;background:transparent;padding:0;text-align:left;color:#F2F6FB;cursor:pointer}
+.mini-info b{font-family:var(--font-ui);font-size:12px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;color:#F2F6FB}
+.mini-info small{font-family:var(--font-ui);font-size:10px;color:#D5E0EA;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;margin-top:2px}
+.mini-seek{width:100%;height:4px;margin:0;accent-color:#C4D2E1;cursor:pointer;filter:drop-shadow(0 1px 2px #061426)}
+.mini button{position:relative;z-index:1;flex-shrink:0}
+.mini-control{width:37px;height:37px;border-radius:50%;display:grid;place-items:center;padding:0;border:1px solid rgba(225,232,240,.4);color:#E1E8F0;background:linear-gradient(145deg,#7A8CA6 0%,#34506D 38%,#112A46 72%,#0A1B2E 100%);box-shadow:0 5px 0 #07172a,0 7px 12px #020b1688,inset 0 1px 1px rgba(255,255,255,.48);text-shadow:0 1px 2px #07172a;font-size:14px;cursor:pointer;transition:transform .12s ease,filter .12s ease}
+.mini-play{width:44px;height:44px;font-size:17px;color:#0A1B2E;background:linear-gradient(145deg,#F2F6FB 0%,#C4D2E1 42%,#7A8CA6 100%);border-color:#E1E8F0;box-shadow:0 5px 0 #34506D,0 8px 15px #020b1688,inset 0 1px 2px #fff}
+.mini-tool{background:linear-gradient(145deg,#557392,#1B3B5A 62%,#0A1B2E);font-size:16px}
+.mini-control:active{transform:translateY(3px);box-shadow:0 2px 0 #07172a,0 3px 7px #020b1666,inset 0 1px 1px rgba(255,255,255,.3);filter:brightness(1.12)}
+.mini-volume-panel{position:absolute;z-index:15;right:8px;bottom:calc(100% + 10px);width:180px;padding:12px 14px;border-radius:16px;background:rgba(17,42,70,.94);border:1px solid rgba(225,232,240,.42);box-shadow:0 10px 28px #020b1677;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.mini-volume-panel.hidden{display:none}
+.mini-volume-panel span{display:block;font-size:9px;letter-spacing:1.8px;color:#C4D2E1;margin-bottom:8px}
+.mini-volume-panel input{width:100%;accent-color:#C4D2E1}
+@media(max-width:430px){
+ .mini{gap:6px;padding:9px 9px;min-height:72px;border-radius:21px}
+ .mini-art{width:42px;height:42px;flex-basis:42px}
+ .mini-control{width:33px;height:33px;font-size:12px}
+ .mini-play{width:40px;height:40px;font-size:16px}
+}
+@media(max-width:365px){.mini-tool:last-of-type{display:none}.mini-info b{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.mini-control{transition:none}}
+
+/* V10 FIX: hide compact player on the full Now Playing screen */
+#mini.hidden{display:none!important}
+/* V10 FIX: clean album-art edge — no reddish outline */
+#playerArt.player-art{border:0!important;outline:0!important;box-shadow:0 24px 55px rgba(0,8,22,.28)!important}
+#playerArt.player-art:focus,#playerArt.player-art:focus-visible{outline:0!important}
+#playerArt.player-art img{border:0!important;outline:0!important;display:block}

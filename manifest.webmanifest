@@ -1,0 +1,20 @@
+{
+  "id": "./",
+  "name": "Aura Music Signature",
+  "short_name": "Aura Music",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0A1B2E",
+  "theme_color": "#0A1B2E",
+  "description": "Tu universo musical personal. Artistas, álbumes y canciones en una experiencia azul profunda.",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
